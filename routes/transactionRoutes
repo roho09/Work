@@ -1,0 +1,23 @@
+// routes/transactionRoutes.js
+const express = require('express');
+const {
+    initializeDatabase,
+    getTransactions,
+    getStatistics,
+    getBarChartData,
+    getPieChartData,
+    getDashboardData,
+} = require('../controllers/transactioncontroller'); // Ensure correct casing here
+
+const router = express.Router();
+
+router.post('/initialize', initializeDatabase);
+router.get('/', getTransactions);
+router.get('/statistics', getStatistics);
+router.get('/bar-chart', getBarChartData);
+router.get('/pie-chart', getPieChartData);
+router.get('/dashboard', getDashboardData);
+
+module.exports = router;
+console.log("Received request for transactions");
+
